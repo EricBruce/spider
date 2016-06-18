@@ -13,6 +13,8 @@ import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.monitor.SpiderMonitor;
 import us.codecraft.webmagic.scheduler.FileCacheQueueScheduler;
+import us.codecraft.webmagic.scheduler.RedisScheduler;
+import us.codecraft.webmagic.scheduler.component.BloomFilterDuplicateRemover;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -31,7 +33,8 @@ public class Application {
                 .addPageModel(new EthanPageModelPipeline(), EthanModel.class)
                 .addUrl(Constant.mkmjDomain)
                 .addUrl(Constant.ethanAllenDomain)
-                .setScheduler((new FileCacheQueueScheduler(Constant.schedulerCacheFile)))
+                .setScheduler(new FileCacheQueueScheduler(Constant.schedulerCacheFile)
+                        .setDuplicateRemover(new BloomFilterDuplicateRemover(10000000)) )
                 .thread(15);
         try {
             SpiderMonitor.instance().register(spider);

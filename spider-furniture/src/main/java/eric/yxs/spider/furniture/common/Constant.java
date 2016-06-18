@@ -42,6 +42,7 @@ public class Constant {
 
     /* 美克美家 */
     public final static String mkmjDomain = "" + properties.get("spider.domain.mkmj");
+    /* ethanAllen */
     public final static String ethanAllenDomain = "" + properties.get("spider.domain.ethanAllen");
 
 }
