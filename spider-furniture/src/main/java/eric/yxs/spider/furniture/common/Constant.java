@@ -36,7 +36,8 @@ public class Constant {
         }
     }
 
-    public final static String urlPrefix = "http://www.markorhome.com";
+    public final static String urlPrefix_mkmj = "http://www.markorhome.com";
+    public final static String urlPrefix_fnji = "http://www.fnji.com";
     public final static String basicPath = "" + properties.get("spider.data.base.path");
     public final static String schedulerCacheFile = "" + properties.get("scheduler.cache.file.path");
 
@@ -44,5 +45,6 @@ public class Constant {
     public final static String mkmjDomain = "" + properties.get("spider.domain.mkmj");
     /* ethanAllen */
     public final static String ethanAllenDomain = "" + properties.get("spider.domain.ethanAllen");
+    public final static String domain_fnji = "" + properties.get("spider.domain.fnji");
 
 }

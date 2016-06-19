@@ -18,7 +18,7 @@ import java.io.StringWriter;
 public class ChannelPageModelPipeline implements PageModelPipeline<ChannelModel> {
 
     public void process(ChannelModel channelModel, Task task) {
-        String imgUrl = Constant.urlPrefix + channelModel.getUri();
+        String imgUrl = Constant.urlPrefix_mkmj + channelModel.getUri();
         String fName = imgUrl.substring(imgUrl.lastIndexOf("/"));
         String dir = Constant.basicPath + "/mkmj/" + channelModel.getDirName();
         File file = new File(dir);
