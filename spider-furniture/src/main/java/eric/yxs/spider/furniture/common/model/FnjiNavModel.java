@@ -22,8 +22,8 @@ import java.util.List;
 public class FnjiNavModel {
     @ExtractByUrl("http://www.fnji.com/(\\w+)")
     private String dirName;
-    @ExtractBy("//div[@class='content-slide-img']//div[@class='focusIndicators col-s-12']/@class")
-    private List<String> urls;
+    @ExtractBy("//div[@class='focusArea']/@class")
+    private String urls;
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000),

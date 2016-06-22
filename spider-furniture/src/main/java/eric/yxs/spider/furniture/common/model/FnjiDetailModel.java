@@ -22,15 +22,17 @@ import java.util.List;
 //@TargetUrl("http://www.fnji.com/[\\w+]*-detail*")
 //@HelpUrl("http://www.fnji.com/\\w+")
 public class FnjiDetailModel {
-    @ExtractBy("//div[@class='col-s-1 small-img product-left']/@class")
+    @ExtractBy("//div[@class='category']//div[@class='text']/@class/text()")
     private String dirName;
-//    @ExtractBy("//div[@class='category']//div[@class='focusItem']/@style/background-image")
-    private List<String> urls;
+    @ExtractBy("//div[@class='product-left']//li/@img-src")
+    private List<String> leftUrl;
+    @ExtractBy("//div[@class='gallary-img']//li/@img-src")
+    private List<String> footUrl;
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000),
                 new ConsolePageModelPipeline(), FnjiDetailModel.class)
-                .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
+//                .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
                 .addUrl("http://www.fnji.com/furniture-detail?id=2735").thread(1).run();
 
     }
