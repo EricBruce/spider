@@ -24,6 +24,7 @@ import java.util.List;
 public class FnjiDetailModel {
     @ExtractBy("//div[@class='category']//div[@class='text']/@class/text()")
     private String dirName;
+    // TODO read attr left img-src
     @ExtractBy("//div[@class='product-left']//li/@img-src")
     private List<String> leftUrl;
     @ExtractBy("//div[@class='gallary-img']//li/@img-src")
