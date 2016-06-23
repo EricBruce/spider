@@ -37,7 +37,7 @@ public class Constant {
     }
 
     public final static String urlPrefix_mkmj = "http://www.markorhome.com";
-    public final static String urlPrefix_fnji = "http://www.fnji.com";
+    public final static String urlPrefix_fnji = "http://www.fnji.com/temp/upload/";
     public final static String basicPath = "" + properties.get("spider.data.base.path");
     public final static String schedulerCacheFile = "" + properties.get("scheduler.cache.file.path");
 

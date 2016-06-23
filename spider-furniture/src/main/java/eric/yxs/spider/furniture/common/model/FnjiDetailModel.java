@@ -1,10 +1,10 @@
 package eric.yxs.spider.furniture.common.model;
 
+import eric.yxs.spider.furniture.pipeline.FnjiDetailPageModelPipeline;
 import lombok.Getter;
 import lombok.Setter;
 import us.codecraft.webmagic.Site;
 import us.codecraft.webmagic.downloader.selenium.SeleniumDownloader;
-import us.codecraft.webmagic.model.ConsolePageModelPipeline;
 import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.HelpUrl;
@@ -17,10 +17,10 @@ import java.util.List;
  */
 @Setter
 @Getter
-@TargetUrl("http://www.fnji.com/furniture-detail*")
-@HelpUrl("http://www.fnji.com/furniture-detail?id=2735")
-//@TargetUrl("http://www.fnji.com/[\\w+]*-detail*")
-//@HelpUrl("http://www.fnji.com/\\w+")
+//@TargetUrl("http://www.fnji.com/furniture-detail*")
+//@HelpUrl("http://www.fnji.com/furniture-detail?id=2735")
+@TargetUrl("http://www.fnji.com/[\\w+]*-detail*")
+@HelpUrl("http://www.fnji.com/.+")
 public class FnjiDetailModel {
     @ExtractBy("//div[@class='category']//div[@class='text']/@class/text()")
     private String dirName;
@@ -32,9 +32,9 @@ public class FnjiDetailModel {
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000),
-                new ConsolePageModelPipeline(), FnjiDetailModel.class)
-//                .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
-                .addUrl("http://www.fnji.com/furniture-detail?id=2735").thread(1).run();
+                new FnjiDetailPageModelPipeline(), FnjiDetailModel.class)
+                .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
+                .addUrl("http://www.fnji.com/furniture").thread(1).run();
 
     }
 }
