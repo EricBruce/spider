@@ -1,5 +1,6 @@
 package eric.yxs.spider.furniture.common.model;
 
+import eric.yxs.spider.furniture.pipeline.BilliecountryDetailPageModelPipeline;
 import lombok.Getter;
 import lombok.Setter;
 import us.codecraft.webmagic.Site;
@@ -28,7 +29,7 @@ public class BilliecountryDetailModel {
 
     public static void main(String[] args) {
         OOSpider.create(Site.me().setSleepTime(1000),
-                new ConsolePageModelPipeline(), BilliecountryDetailModel.class)
+                new BilliecountryDetailPageModelPipeline(), BilliecountryDetailModel.class)
                 .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
                 .addUrl("http://www.billiecountry.com/products_list/&pmcId=28.html")
                 .thread(1).run();
