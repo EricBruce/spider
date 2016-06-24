@@ -29,7 +29,7 @@ public class CarracoleModel {
         OOSpider.create(Site.me().setSleepTime(1000),
                 new ConsolePageModelPipeline(), CarracoleModel.class)
 //                .setDownloader(new SeleniumDownloader("/soft/chrome/chromedriver"))
-                .addUrl("http://www.caracole.com")
+                .addUrl("http://www.caracole.com/home")
 //                .addUrl("http://www.caracole.com/gallerydetails?id=UPH-CHAWOO-54B&ref=gallery&ViewAll=True&type=cat&zid=LIVING%20-%20CHAIRS")
                 .thread(1).run();
 
