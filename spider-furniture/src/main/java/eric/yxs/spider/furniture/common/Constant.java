@@ -19,7 +19,7 @@ public class Constant {
 
     static {
 
-        File file = new File("config.properties");
+        File file = new File(Constant.class.getClass().getResource("/") + "config.properties");
         if (!file.exists()) {
             log.warn("配置文件config.properties不存在");
             System.exit(404);

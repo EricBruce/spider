@@ -1,7 +1,11 @@
 package eric.yxs.spider.furniture.common.model;
 
+import eric.yxs.spider.furniture.pipeline.ChannelPageModelPipeline;
 import lombok.Getter;
 import lombok.Setter;
+import us.codecraft.webmagic.Site;
+import us.codecraft.webmagic.model.ConsolePageModelPipeline;
+import us.codecraft.webmagic.model.OOSpider;
 import us.codecraft.webmagic.model.annotation.ExtractBy;
 import us.codecraft.webmagic.model.annotation.ExtractByUrl;
 import us.codecraft.webmagic.model.annotation.HelpUrl;
@@ -21,4 +25,13 @@ public class ChannelModel {
     private String fileName;
     @ExtractBy("//div[@class='main-banner']/img/@src")
     private String uri;
+
+    public static void main(String[] args) {
+        OOSpider.create(Site.me().setSleepTime(1000),
+                new ChannelPageModelPipeline(), ChannelModel.class)
+//                .setDownloader(new SeleniumDownloader("/Users/yihua/Downloads/chromedriver"))
+                .addUrl("http://www.markorhome.com/")
+                .thread(5).run();
+
+    }
 }

@@ -1,6 +1,5 @@
 package eric.yxs.spider.furniture.pipeline;
 
-import eric.yxs.spider.furniture.common.Constant;
 import eric.yxs.spider.furniture.common.model.ChannelModel;
 import eric.yxs.spider.furniture.common.util.GetImage;
 import lombok.extern.slf4j.Slf4j;
@@ -18,9 +17,9 @@ import java.io.StringWriter;
 public class ChannelPageModelPipeline implements PageModelPipeline<ChannelModel> {
 
     public void process(ChannelModel channelModel, Task task) {
-        String imgUrl = Constant.urlPrefix_mkmj + channelModel.getUri();
+        String imgUrl = "http://www.markorhome.com" + channelModel.getUri();
         String fName = imgUrl.substring(imgUrl.lastIndexOf("/"));
-        String dir = Constant.basicPath + "/mkmj/" + channelModel.getDirName();
+        String dir = "/data/spider/furniture/mkmj/" + channelModel.getDirName();
         File file = new File(dir);
         if (file.exists()) {
             file.mkdirs();
