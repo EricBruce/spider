@@ -1,6 +1,6 @@
 package eric.yxs.spider.furniture.pipeline;
 
-import eric.yxs.spider.furniture.common.model.BilliecountryDetailModel;
+import eric.yxs.spider.furniture.common.model.GiorgettiModel;
 import eric.yxs.spider.furniture.common.util.GetImage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -17,8 +17,8 @@ import java.util.List;
  * Created by young on 16/5/28.
  */
 @Slf4j
-public class GiorgettiPageModelPipeline implements PageModelPipeline<BilliecountryDetailModel> {
-    public void process(BilliecountryDetailModel detailModel, Task task) {
+public class GiorgettiPageModelPipeline implements PageModelPipeline<GiorgettiModel> {
+    public void process(GiorgettiModel detailModel, Task task) {
         String baseDir = "/data/spider/furniture/giorgetti/" + detailModel.getDirName() + "/";
         File file = new File(baseDir);
         if (!file.exists()) {
